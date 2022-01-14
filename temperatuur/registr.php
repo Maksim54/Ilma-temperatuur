@@ -22,8 +22,7 @@ if(isset($_REQUEST["knimi"])&& isset($_REQUEST["psw"])) {
     $krypt = crypt($pass, $sool);
 
 //kasutajanimi kontroll
-    $kask = $yhendus->prepare("SELECT id, knimi, psw FROM uuedkasutajad
-WHERE knimi=?");
+    $kask = $yhendus->prepare("SELECT id, knimi, psw FROM uuedkasutajad WHERE knimi=?");
     $kask->bind_param("s", $login);
     $kask->bind_result($id, $kasutajanimi, $parool);
     $kask->execute();
@@ -39,9 +38,7 @@ WHERE knimi=?");
 
 
 // uue kasutaja lisamine andmetabeli sisse
-    $kask = $yhendus->prepare("
-INSERT INTO uuedkasutajad(knimi, psw, isadmin) 
-VALUES (?,?,?)");
+    $kask = $yhendus->prepare("INSERT INTO uuedkasutajad(knimi, psw, isadmin) VALUES (?,?,?)");
     $kask->bind_param("ssi", $login, $krypt, $_REQUEST["admin"]);
     $kask->execute();
     $_SESSION['knimi'] = $login;

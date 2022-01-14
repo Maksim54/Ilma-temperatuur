@@ -21,7 +21,7 @@ SELECT id, knimi, psw, isadmin FROM uuedkasutajad WHERE knimi=?");
         $_SESSION['knimi'] = $login;
         if ($onadmin == 1) {
             $_SESSION['admin'] = true;
-            header("Location: lisamine.php");
+            header("Location: lisaVaata.php");
         }
         echo "kasutaja $login või parool $krypt on vale";
         $yhendus->close();
@@ -34,6 +34,7 @@ $kask->bind_param("ssi", $login, $krypt, $_REQUEST["admin"]);
 $kask->execute();
 $_SESSION['knimi'] = $login;
 $_SESSION['admin'] = true;
+$yhendus->close();
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -46,21 +47,22 @@ $_SESSION['admin'] = true;
 <h1>Login vorm</h1>
 
 <div class="modal">
-<form action="registr.php" method="post" class="modal-content animate">
-
-    <label for="knimi">Kasutajanimi</label>
-    <input type="text" placeholder="Sisesta kasutajanimi"
-           name="knimi" id="knimi" required>
-    <br>
-    <label for="psw">Parool</label>
-    <input type="password" placeholder="Sisesta parool"
-           name="psw" id="psw" required>
-    <br>
-    <br>
-    <input type="submit" value="Logi sisse">
-    <button type="button"
-            onclick="window.location.href='lisaVaata.php'"
-            class="cancelbtn">Loobu</button>
+    <form action="login1.php" method="post" class="modal-content animate">
+        <label for="knimi">Kasutajanimi</label>
+        <input type="text" placeholder="Sisesta kasutajanimi"
+               name="knimi" id="knimi" required>
+        <br>
+        <label for="psw">Parool</label>
+        <input type="password" placeholder="Sisesta parool"
+               name="psw" id="psw" required>
+        <br>
+        <label for="admin">Kas teha admin?</label>
+        <input type="checkbox" name="admin" id="admin" value="1">
+        <br>
+        <input type="submit" value="Loo kasutaja">
+        <button type="button"
+                onclick="window.location.href='lisaVaata.php'"
+                class="cancelbtn">Loobu</button>
 </form>
 </div>
 </body>

@@ -62,16 +62,20 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
     </div>
     <div class="column">
         <dl>
-            <dt>Temperatuur:</dt>
+            <dt>Temperatuur❄️:</dt>
+            <br>
             <dd><input type="text" name="temperatuur" /></dd>
-            <dt>Maakonna:</dt>
+            <br>
+            <dt>Maakonna🏙️:</dt>
+            <br>
             <dd><?php
                 echo looRippMenyy("SELECT id, maakonnanimi FROM maakonna",
                     "maakonna_id");
                 ?>
             </dd>
-
-            <dt>Kuupäev:</dt>
+            <br>
+            <dt>Kuupäev🕒:</dt>
+            <br>
             <dd><input type="date" name="kuupaev" /></dd>
         </dl>
         <input class="bt" type="submit" name="teavetlisamine" value="Lisa teavet" />
@@ -89,9 +93,9 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
             <table>
                 <tr>
                     <th>Haldus</th>
-                    <th><a href="lisaVaata.php?sort=temperatuur">temperatuur</a></th>
-                    <th><a href="lisaVaata.php?sort=maakonnanimi">maakonna</a></th>
-                    <th><a href="lisaVaata.php?sort=kuupaev">kuupaev</a></th>
+                    <th><a href="lisaVaata.php?sort=temperatuur">Temperatuur</a></th>
+                    <th><a href="lisaVaata.php?sort=maakonnanimi">Maakonna</a></th>
+                    <th><a href="lisaVaata.php?sort=kuupaev">Kuupaev</a></th>
                 </tr>
                 <?php foreach($kaubad as $kaup): ?>
                     <tr>
@@ -110,8 +114,8 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
                             <td><input type="date" name="kuupaev" value="<?=$kaup->kuupaev ?>"></td>
                         <?php else: ?>
                             <td><a href="lisaVaata.php?kustutusid=<?=$kaup->id ?>"
-                                   onclick="return confirm('Kas ikka soovid kustutada?')">x</a>
-                                <a href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">m</a>
+                                   onclick="return confirm('Kas ikka soovid kustutada?')">🗑️</a>
+                                <a href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">✏️</a>
                             </td>
                             <td><?=$kaup->nimetus ?></td>
                             <td><?=$kaup->grupinimi ?></td>
