@@ -113,9 +113,9 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
                                 ?></td>
                             <td><input type="date" name="kuupaev" value="<?=$kaup->kuupaev ?>"></td>
                         <?php else: ?>
-                            <td><a href="lisaVaata.php?kustutusid=<?=$kaup->id ?>"
-                                   onclick="return confirm('Kas ikka soovid kustutada?')">🗑️</a>
-                                <a href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">✏️</a>
+                            <td><a2 href="lisaVaata.php?kustutusid=<?=$kaup->id ?>"
+                                   onclick="return confirm('Kas ikka soovid kustutada?')">🗑️</a2>
+                                <a2 href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">✏️</a2>
                             </td>
                             <td><?=$kaup->nimetus ?></td>
                             <td><?=$kaup->grupinimi ?></td>
