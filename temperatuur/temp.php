@@ -1,13 +1,12 @@
 <?php
-$yhendus=new mysqli("localhost", "blinov", "12345", "blinov");
+$yhendus=new mysqli("localhost", "root", "", "test");
 function kysiKaupadeAndmed($sorttulp="temperatuur", $otsisona=""){
     global $yhendus;
-    $lubatudtulbad=array("temperatuur", "maakonnanimi", "kuupaev");
+    $lubatudtulbad=array("temperatuur", "maakonnanimi","maakonnakeskus", "kuupaev");
     if(!in_array($sorttulp, $lubatudtulbad)){
         return "lubamatu tulp";
     }
     //addslashes - striplashes -lisab langjoone - kustutab langjoo
-
     $otsisona=addslashes(stripslashes($otsisona));
     $kask=$yhendus->prepare("SELECT temperatuuri.id, temperatuur, maakonnanimi, kuupaev
        FROM temperatuuri, maakonna
@@ -49,6 +48,13 @@ function lisaGrupp($maakonnanimi){
     $kask=$yhendus->prepare("INSERT INTO maakonna (maakonnanimi)
                       VALUES (?)");
     $kask->bind_param("s", $maakonnanimi);
+    $kask->execute();
+}
+function lisaGruppi($maakonnakeskus){
+    global $yhendus;
+    $kask=$yhendus->prepare("INSERT INTO maakonna (maakonnakeskus)
+                      VALUES (?)");
+    $kask->bind_param("s", $maakonnakeskus);
     $kask->execute();
 }
 //lisa andmed tabeli Kauab

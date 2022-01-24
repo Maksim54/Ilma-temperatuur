@@ -2,98 +2,190 @@
     box-sizing: border-box;
 }
 
-a1 {
-    text-decoration:none;
-    border: none;
-    color: #ad05f1;
-    text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px #0fa,
-            0 0 82px #0fa,
-            0 0 92px #0fa,
-            0 0 102px #0fa,
-            0 0 151px #0fa;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: underline;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    border-radius: 20px;
-    font-family: 'Gwendolyn', cursive;
-}
-
-a2 {
-    text-decoration:none;
-    border: none;
-    color: #ad05f1;
-    text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px #0fa,
-            0 0 82px #0fa,
-            0 0 92px #0fa,
-            0 0 102px #0fa,
-            0 0 151px #0fa;
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    border-radius: 20px;
-    font-family: 'Gwendolyn', cursive;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #83ead7;
-}
-
-/*.Absolute-Center {
-    display: flex; // make us of Flexbox
-    align-items: center; // does vertically center the desired content
-    justify-content: center; // horizontally centers single line items
-    text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
-}*/
-
-
-/* Style the header */
-.header {
-    background-color: #afce7d;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-}
-
-/* Create three equal columns that floats next to each other */
 .column {
+    align-items: center;
     float: left;
     width: 33.33%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
 }
-
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-
-/* Style the footer */
-.footer {
-    background-color: #afce7d;
-    padding: 10px;
-    text-align: center;
+#fre{
+    margin: auto;
 }
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
+}
+@media screen and (min-width:1400px){
+    #left{
+        width: 25%;
+        margin-left: 8%;
+    }
+    #rig{
+        width: 25%;
+        margin-right: 4%;
+    }
+}
+body{
+    background-color: teal;
+    font-family: 'Gwendolyn', cursive;
+}
+#menuArea {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.322);
+    transition: box-shadow 0.5s ease-in-out;
+}
+.header{
+    font-size: 24px;
+    text-align: center;
+    margin: auto;
+}
+th,td{
+    padding: 15px;
+    border: black solid 3px;
+}
+table {
+    text-decoration:none;
+    border: none;
+    color: #000000;
+    /*text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #0fa,
+            0 0 82px #0fa,
+            0 0 92px #0fa,
+            0 0 102px #0fa,
+            0 0 151px #0fa;
+     */
+    padding: 20px 35px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 20px;
+    border: 4px solid black;
+    border-collapse: collapse;
+    font-family: 'Gwendolyn', cursive;
+}
+form dt{
+    font-weight: bold;
+
+}
+form input[type=submit]{
+    border-radius: 10px;
+    border: teal;
+    background-color: teal;
+}
+form input[type=number]{
+    width: 75px;
+    border-radius: 1px;
+    font-family: inherit;
+}
+form select, input[type=text]{
+    border-radius: 1px;
+    font-family: inherit;
+}
+a{
+    color: lightblue;
+}
+a:hover{
+    font-weight: bold;
+}* {
+     box-sizing: border-box;
+ }
+
+.column {
+    align-items: center;
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#fre{
+    margin: auto;
+}
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+@media screen and (min-width:1400px){
+    #left{
+        width: 25%;
+        margin-left: 8%;
+    }
+    #rig{
+        width: 25%;
+        margin-right: 4%;
+    }
+}
+body{
+    background-color: #30c2bd;
+    font-family: 'Gwendolyn', cursive;
+}
+.header{
+    font-size: 24px;
+    text-align: center;
+    margin: auto;
+}
+th {
+    color: #ff00ea;
+    text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #0fa,
+            0 0 82px #0fa,
+            0 0 92px #0fa,
+            0 0 102px #0fa,
+            0 0 151px #0fa;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+table{
+    text-align: center;
+    width: 100%;
+    border: solid #000000 2px;
+    border-collapse: collapse;
+}
+form dt{
+    font-weight: bold;
+
+}
+form input[type=submit]{
+    border-radius: 10px;
+    border: teal;
+    background-color: teal;
+}
+form input[type=number]{
+    width: 75px;
+    border-radius: 1px;
+    font-family: inherit;
+}
+form select, input[type=text]{
+    border-radius: 1px;
+    font-family: inherit;
+}
+a{
+    color: #9524d3;
+}
+a:hover{
+    font-weight: bold;
 }

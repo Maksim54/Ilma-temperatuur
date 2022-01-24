@@ -2,7 +2,7 @@
 require("temp.php");
 $sorttulp="temperatuur";
 $otsisona="";
-if(isSet($_REQUEST["maakonnaisamine"])){
+if(isSet($_REQUEST["maakonnalisamine"])){
     if (!empty(trim($_REQUEST["uuemakonnanimi"]))) {
         lisaGrupp($_REQUEST["uuemakonnanimi"]);
         header("Location: lisaVaata.php");
@@ -32,21 +32,6 @@ if(isSet($_REQUEST["otsisona"])){
 $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
 ?>
 <!DOCTYPE html>
-<div id="menuArea">
-    <a href="registr.php">Loo uus kasutaja</a>
-    <?php
-    if(isset($_SESSION['knimi'])){
-        ?>
-        <h1>Tere, <?="$_SESSION[knimi]"?></h1>
-        <a href="logout1.php">Logi välja</a>
-        <?php
-    } else {
-        ?>
-        <a href="login1.php">Logi sisse</a>
-        <?php
-    }
-    ?>
-</div>
 <head>
     <div class="header">
         <title>Temperaturi halduse leht</title>
@@ -62,20 +47,16 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
     </div>
     <div class="column">
         <dl>
-            <dt>Temperatuur❄️:</dt>
-            <br>
+            <dt>Temperatuur:</dt>
             <dd><input type="text" name="temperatuur" /></dd>
-            <br>
-            <dt>Maakonna🏙️:</dt>
-            <br>
+            <dt>Maakonna:</dt>
             <dd><?php
-                echo looRippMenyy("SELECT id, maakonnanimi FROM maakonna",
+                echo looRippMenyy("SELECT id, maakonnanimi,maakonnakeskus FROM maakonna",
                     "maakonna_id");
                 ?>
             </dd>
-            <br>
-            <dt>Kuupäev🕒:</dt>
-            <br>
+
+            <dt>Kuupäev:</dt>
             <dd><input type="date" name="kuupaev" /></dd>
         </dl>
         <input class="bt" type="submit" name="teavetlisamine" value="Lisa teavet" />
@@ -89,13 +70,15 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
     </div>
     <div class="column2">
         <form action="lisaVaata.php">
-            <h2>Maakonna loetelu</h2>
+            <h2>Kaupade loetelu</h2>
+            Otsi: <input type="text" name="otsisona" />
             <table>
                 <tr>
                     <th>Haldus</th>
-                    <th><a href="lisaVaata.php?sort=temperatuur">Temperatuur</a></th>
-                    <th><a href="lisaVaata.php?sort=maakonnanimi">Maakonna</a></th>
-                    <th><a href="lisaVaata.php?sort=kuupaev">Kuupaev</a></th>
+                    <th><a href="lisaVaata.php?sort=temperatuur">temperatuur</a></th>
+                    <th><a href="lisaVaata.php?sort=maakonnanimi">maakonna</a></th>
+                    <th><a href="lisaVaata.php?sort=maakonnakeskus">maakonnakeskus</a></th>
+                    <th><a href="lisaVaata.php?sort=kuupaev">kuupaev</a></th>
                 </tr>
                 <?php foreach($kaubad as $kaup): ?>
                     <tr>
@@ -113,9 +96,9 @@ $kaubad=kysiKaupadeAndmed($sorttulp, $otsisona);
                                 ?></td>
                             <td><input type="date" name="kuupaev" value="<?=$kaup->kuupaev ?>"></td>
                         <?php else: ?>
-                            <td><a2 href="lisaVaata.php?kustutusid=<?=$kaup->id ?>"
-                                   onclick="return confirm('Kas ikka soovid kustutada?')">🗑️</a2>
-                                <a2 href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">✏️</a2>
+                            <td><a href="lisaVaata.php?kustutusid=<?=$kaup->id ?>"
+                                   onclick="return confirm('Kas ikka soovid kustutada?')">x</a>
+                                <a href="lisaVaata.php?muutmisid=<?=$kaup->id ?>">m</a>
                             </td>
                             <td><?=$kaup->nimetus ?></td>
                             <td><?=$kaup->grupinimi ?></td>
